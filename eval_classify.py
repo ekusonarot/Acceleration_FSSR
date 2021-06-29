@@ -22,7 +22,7 @@ fsrcnn.load_state_dict(torch.load("./weights/x4_3ch_fsrcnn_9.pth", map_location=
 light_weight_fsrcnn.load_state_dict(torch.load("./weights/x4_3ch_lightfsrcnn_9.pth", map_location=torch.device(device)))
 
 classify = classification.CategoricalCNN(light_weight_fsrcnn, fsrcnn, input_shape=(3, 180, 320), device=device).to(device)
-classify.load_state_dict(torch.load("./weight_classification_3.pth", map_location=torch.device(device)), strict=False)
+classify.load_state_dict(torch.load("./weight_classification_9.pth", map_location=torch.device(device)), strict=False)
 
 transform_input = transforms.Compose([
     transforms.Resize((180,320)),
